@@ -5,7 +5,6 @@ A small collection of fun JavaScript-based games. Each game runs in the browser 
 ## 🚀 Games Included
 1. **Memory Game** 🧠 – Flip the cards to find matching pairs.
 
----
 ## 🧩 Memory Game
 
 **📍 Description:**  
