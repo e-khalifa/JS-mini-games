@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="memory-game">
+    <h1>Find A Match</h1>
+    <div>
+        <div>
+            <img src="./assets/Moon.gif" onclick="flipImg(this,'3')">
+            <img src="./assets/Moon.gif" onclick="flipImg(this,'4')">
+            <img src="./assets/Moon.gif" onclick="flipImg(this,'3')">
+            <img src="./assets/Moon.gif" onclick="flipImg(this,'1')">
+
+        </div>
+        <div>
+            <img src="./assets/Moon.gif" onclick="flipImg(this,'1')">
+            <img src="./assets/Moon.gif" onclick="flipImg(this,'2')">
+            <img src="./assets/Moon.gif" onclick="flipImg(this,'5')">
+            <img src="./assets/Moon.gif" onclick="flipImg(this,'2')">
+        </div>
+        <div>
+            <img src="./assets/Moon.gif" onclick="flipImg(this,'4')">
+            <img src="./assets/Moon.gif" onclick="flipImg(this,'5')">
+            <img src="./assets/Moon.gif" onclick="flipImg(this,'6')">
+            <img src="./assets/Moon.gif" onclick="flipImg(this,'6')">
+        </div>
+    </div>
+    <a href="https://github.com/e-khalifa" class="made-by">@e-khalifa</a>
+    <script>
+        var flipped = [];
+        var matched = [];
+        function flipImg(imgElement, imgNum) {
+            imgElement.src = `./assets/${imgNum}.gif`;
+            flipped.push(imgElement);
+            if (flipped.length === 3) {
+                if (flipped[0].src === flipped[1].src) {
+                    matched.push(flipped[0], flipped[1]);
+                    flipped = flipped.slice(2);
+                    console.log(matched.length);
+                } else {
+                    flipped[0].src = "./assets/Moon.gif";
+                    flipped[1].src = "./assets/Moon.gif";
+                    flipped = flipped.slice(2);
+                }
+            }
+            if (matched.length == 10) {
+                setTimeout(() => alert("You Won!"), 1000);
+            }
+            // if (matched.length == 10) {
+            //     waitSec(1);
+            //     alert("You Won!");
+            // }
+        }
+        function waitSec(sec) {
+            var start = new Date().getTime();
+            var end = new Date().getTime();
+            while (end - start <= sec) {
+                end = new Date().getTime();
+            }
+        }
+    </script>
+</body>
+
+</html>
